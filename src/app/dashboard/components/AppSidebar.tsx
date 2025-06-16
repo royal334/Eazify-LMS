@@ -1,5 +1,6 @@
-import { Calendar, Home, Inbox, Search, Settings,BookOpen, BookOpenText } from "lucide-react"
+import { Calendar, Search, Settings,BookOpen, BookOpenText,LogOut } from "lucide-react"
 import Image from "next/image"
+import Link from 'next/link'
 
 import {
   Sidebar,
@@ -10,6 +11,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarFooter
 } from "@/components/ui/sidebar"
 
 
@@ -26,18 +28,13 @@ const items = [
     icon: BookOpenText,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
     title: "Search",
     url: "#",
     icon: Search,
   },
   {
     title: "Settings",
-    url: "#",
+    url: "/dashboard/settings",
     icon: Settings,
   },
 ]
@@ -64,6 +61,13 @@ function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter className="bg-bright-blue">
+        <Link href='/' className="w-full">
+          <button className="w-full border-2 border-white text-white py-2 rounded-md hover:bg-sky-blue cursor-pointer flex items-center justify-center">
+            LOG OUT<LogOut className="ml-2"/>
+          </button>
+        </Link>
+      </SidebarFooter>
     </Sidebar>
   )
 }

@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -126,7 +128,9 @@
   --color-bright-blue: #0071FF;
   --color-charcoal-black: #080808;
 }
-
+.a{
+  color:#0073ff80
+}
 /* Define font-family rules */
 body {
   font-family: 'Inter', sans-serif;
@@ -194,4 +198,9 @@ p, li, span {
 
 #about .listing{
   font-size: 1.2rem;
+}
+
+/* More fonts*/
+.inter {
+  font-family: var(--font-inter), sans-serif;
 }
