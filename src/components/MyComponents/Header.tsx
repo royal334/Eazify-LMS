@@ -2,8 +2,9 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { motion } from "motion/react"
-import { getAuth,  } from "firebase/auth"
+import DarModeToggle from "./DarModeToggle"
 import Link from "next/link"
+import { SignedOut,SignInButton,SignUpButton, SignedIn, UserButton } from "@clerk/nextjs"
 
 function Header() {
 
@@ -42,14 +43,24 @@ function Header() {
                               <li className="font-semibold"><a onClick={(e) => {handleSmoothScroll(e,'courses')}} href="#courses" className="hover:text-bright-blue">Courses</a></li>
                               <li className="font-semibold"><a onClick={(e) => {handleSmoothScroll(e,'footer')}} href="#footer"  className="hover:text-bright-blue">Contact</a></li>
                     </ul>
-                    <div className="ml-auto">
-                         <Link href='/login'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue mr-4">SIGN IN</motion.button></Link>
-                         <Link href='/login'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></Link>
+                    <div className="ml-auto flex items-center gap-4 ">
+                         <SignedIn>
+                              <button className="bg-bright-blue px-2 py-1 text-white  rounded"><Link href='/dashboard' className="inter">Dashboard</Link></button>
+                         </SignedIn>
+                         <DarModeToggle/>
+                         <SignedOut>
+                              <SignUpButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></SignUpButton>
+                              <SignInButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></SignInButton>
+                         </SignedOut>
+                         <SignedIn>
+                              <UserButton/>
+                         </SignedIn>
                     </div>
                     
                </nav>
 
-               <nav className="md:hidden">
+               <nav className="md:hidden flex gap-2 items-center">
+                    <DarModeToggle/>
                     <Menu onClick={toggleMenu}/>
                </nav>
                
@@ -66,8 +77,10 @@ function Header() {
                                    <li className="font-semibold" onClick={toggleMenu}><a onClick={(e) => {handleSmoothScroll(e,'footer')}} href="#footer"  className="text-bright-blue">Contact</a></li>
                               </ul>
                               <div className="flex justify-center mb-4 flex-col w-fit mx-auto gap-4 ">
-                                   <Link href='/login'><button className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue w-full">SIGN UP</button></Link>
-                                   <Link href='/login'><button className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue w-full">LOGIN</button></Link>
+                              <SignedOut>
+                                   <SignUpButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></SignUpButton>
+                                   <SignInButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></SignInButton>
+                              </SignedOut>
                               </div>
                          </div>
                     )

@@ -11,7 +11,7 @@ function FooterDetails(props: PropTypes) {
                <div>{props.icon}</div>
                <p className="text-sky-blue font-semibold md:text-lg">{props.title}</p>
           </div>
-          <p className="text-white hover:underline">{props.details}</p>
+          <p className="text-white dark:text-charcoal-black hover:underline">{props.details}</p>
      </div>
   )
 }

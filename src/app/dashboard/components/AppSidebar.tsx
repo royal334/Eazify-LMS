@@ -14,6 +14,8 @@ import {
   SidebarFooter
 } from "@/components/ui/sidebar"
 
+import { SignOutButton } from "@clerk/nextjs"
+
 
 // Menu items.
 const items = [
@@ -62,11 +64,11 @@ function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className="bg-bright-blue">
-        <Link href='/' className="w-full">
-          <button className="w-full border-2 border-white text-white py-2 rounded-md hover:bg-sky-blue cursor-pointer flex items-center justify-center">
-            LOG OUT<LogOut className="ml-2"/>
-          </button>
-        </Link>
+          <SignOutButton redirectUrl="/">
+            <button className="w-full border-2 border-white text-white py-2 rounded-md hover:bg-sky-blue cursor-pointer flex items-center justify-center">
+              LOG OUT<LogOut className="ml-2"/>
+            </button>
+          </SignOutButton>
       </SidebarFooter>
     </Sidebar>
   )

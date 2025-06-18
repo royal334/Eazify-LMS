@@ -273,7 +273,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <SquareMenu />
+      <SquareMenu size={40}/>
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )

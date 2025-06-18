@@ -11,10 +11,12 @@ const inter = Inter({
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
-      <div className={`${inter.variable} flex md:h-screen w-full bg-[#0073ff80]`}>
+      <div className={`${inter.variable} flex w-full bg-[#0073ff80]`}>
         <AppSidebar />
         <main className=" w-full ">
-          <SidebarTrigger />
+          <div className="bg-white dark:bg-black py-2">
+            <SidebarTrigger  />
+          </div>
           {children}
         </main>
       </div>

@@ -128,9 +128,8 @@
   --color-bright-blue: #0071FF;
   --color-charcoal-black: #080808;
 }
-.a{
-  color:#0073ff80
-}
+
+
 /* Define font-family rules */
 body {
   font-family: 'Inter', sans-serif;
@@ -191,9 +190,13 @@ p, li, span {
 /* Specific styles for the About section */
 #about .listing::before {
   content: '•';
-  color: var(--color-charcoal-black);
+  color: black;
   font-size: 1.2em;
   margin-right: 0.5rem;
+}
+
+.dark #about .listing::before {
+  color: white; /* Change bullet color to white when dark mode is enabled */
 }
 
 #about .listing{

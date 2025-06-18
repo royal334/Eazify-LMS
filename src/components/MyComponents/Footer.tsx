@@ -1,15 +1,19 @@
+'use client'
 import { Phone, Mail, MapPin, Link } from "lucide-react"
 import FooterDetails from "./FooterDetails"
+import useDarkModeStore from "@/store/DarkMode"
 
 function Footer() {
+
+     const { isDarkMode } = useDarkModeStore()
   return (
-     <section id='footer' className="p-4 md:px-0 bg-black">
+     <section id='footer' className="p-4 md:px-0 bg-black dark:bg-white">
           <div className='container px-4 md:px-8 py-10 mx-auto'>
                <div className="flex flex-col md:flex-row gap-16">
                     <div className="md:w-3/4">
-                         <img src="/images/logo-2.png" alt="logo" className="md:w-3/4" />
+                         <img src={isDarkMode? '/images/logo-3.png': '/images/logo-2.png'} alt="logo" className="md:w-3/4" />
                     </div>
-                    <div className="grid grid-cols-2 text-white md:w-1/4 w-full justify-items-end md:justify-items-center gap-2 md:gap-0">
+                    <div className="grid grid-cols-2 text-white dark:text-black md:w-1/4 w-full justify-items-end md:justify-items-center gap-2 md:gap-0">
                     
                          <a href="/"  target='_blank' className="justify-self-start md:justify-self-center font-semibold hover:text-bright-blue">Home</a>
                          <a href="https://www.linkedin.com/company/106349919/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BzqdsNmZ0QeG2CSEVnx5BGw%3D%3D" target="_blank" className="font-semibold hover:text-bright-blue">LinkedIn</a>

@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-
+import {
+  ClerkProvider,
+  SignedIn,
+  UserButton,
+} from '@clerk/nextjs'
 import "./globals.css";
+import DarkModeProvider from "@/components/MyComponents/DarkModeProvider";
 
 export const metadata: Metadata = {
   title: "Eazify Cohort 2",
@@ -12,11 +17,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
-    <html lang="en">
-      <body >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <DarkModeProvider/>
+          {/* <header className="flex justify-end items-center p-4 gap-4 h-16">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header> */}
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

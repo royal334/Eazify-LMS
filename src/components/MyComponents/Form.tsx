@@ -1,9 +1,7 @@
 'use client'
-import { useEffect } from "react";
 import { useForm } from "react-hook-form"
-//import Swal from "sweetalert2";
 import { easeIn, motion } from "motion/react"
-//import { toast } from "react-toastify";
+
 
 type FormDataTypes = {
      course:string
@@ -13,10 +11,6 @@ type FormDataTypes = {
      phoneNum: string;
 }
 
-// type PropTypes = {
-//      course:string
-//      setCourse: (course: string) => void
-// }
 
 function Form() {
 
@@ -33,9 +27,6 @@ function Form() {
 
      const {errors, isValid} = formState
 
-     // useEffect(() => {
-     //      setValue('course', props.course)
-     // }, [props.course, setValue])
 
 
 
@@ -72,8 +63,7 @@ function Form() {
           }
      } catch(error){
           console.error('Error submitting form:', error);
-          // Optionally, you can show an error message to the user
-          // toast.error("An error occurred while submitting the form. Please try again later.");
+
      }
         };
 

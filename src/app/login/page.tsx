@@ -1,15 +1,28 @@
+'use client'
 import Image from "next/image"
 import Link from "next/link"
+import useDarkModeStore from "@/store/DarkMode"
+import { useForm } from "react-hook-form"
 
 function page() {
+
+     const { isDarkMode } = useDarkModeStore() 
+
+     const { register } = useForm()
+
   return (
           <>
-               <div className=""> 
-                    <Image src='/images/logo-1.png' width={200} height={200} alt='logo' className="mt-4 ml-4"/>
+               <div> 
+                    <Image src={isDarkMode ? "/images/logo-2.png" : '/images/logo-1.png'} width={200} height={200} alt='logo' className="mt-4 ml-4"/>
                     <div className="flex justify-center items-center h-screen">
                          <div className="container mx-4 md:mx-0 md:max-w-[600px] border-2 border-gray-300 rounded-md p-6 shadow-lg">
                               <label htmlFor="email">Email</label>
-                              <input type="email" className="border-2 border-gray-300 rounded-md p-2 w-full my-2" placeholder="Enter your email" />
+                              <input 
+                              type="email" 
+                              className="border-2 border-gray-300 rounded-md p-2 w-full my-2" 
+                              placeholder="Enter your email" 
+                              {...register ('name', {required: 'Email is reqired'})}
+                              />
                               <label htmlFor="password" className="mt-4">Password</label>
                               <input type="password" className="border-2 border-gray-300 rounded-md p-2 w-full" placeholder="Enter your password" />
                               <div className="flex flex-col">

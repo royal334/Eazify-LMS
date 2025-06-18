@@ -8,14 +8,7 @@ function page() {
      const { isDarkMode,toggleDarkMode } = useDarkModeStore()  
 
      // Apply or remove the dark class on the html element
-     useEffect(() => {
-       const htmlElement = document.documentElement;
-       if (isDarkMode) {
-         htmlElement.classList.add('dark');
-       } else {
-         htmlElement.classList.remove('dark');
-       }
-     }, [isDarkMode]);
+
 
   return (
     <div>
