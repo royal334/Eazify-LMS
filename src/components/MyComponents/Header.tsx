@@ -5,10 +5,12 @@ import { motion } from "motion/react"
 import DarModeToggle from "./DarModeToggle"
 import Link from "next/link"
 import { SignedOut,SignInButton,SignUpButton, SignedIn, UserButton } from "@clerk/nextjs"
+import useUserRoleStore from "@/store/UserRoles"
 
 function Header() {
 
      const [isOpen, setIsOpen] = useState(false);
+     const { role } = useUserRoleStore()
 
      function toggleMenu(){
           setIsOpen(prev => !prev)
@@ -45,7 +47,7 @@ function Header() {
                     </ul>
                     <div className="ml-auto flex items-center gap-4 ">
                          <SignedIn>
-                              <button className="bg-bright-blue px-2 py-1 text-white  rounded"><Link href='/dashboard' className="inter">Dashboard</Link></button>
+                              <button className="bg-bright-blue px-2 py-1 text-white  rounded"><Link href='/student-dashboard' className="inter">Dashboard</Link></button>
                          </SignedIn>
                          <DarModeToggle/>
                          <SignedOut>
@@ -77,6 +79,9 @@ function Header() {
                                    <li className="font-semibold" onClick={toggleMenu}><a onClick={(e) => {handleSmoothScroll(e,'footer')}} href="#footer"  className="text-bright-blue">Contact</a></li>
                               </ul>
                               <div className="flex justify-center mb-4 flex-col w-fit mx-auto gap-4 ">
+                              <SignedIn>
+                              <button className="bg-bright-blue px-2 py-1 text-white  rounded"><Link href={`/${role}-dashboard`} className="inter">Dashboard</Link></button>
+                         </SignedIn>
                               <SignedOut>
                                    <SignUpButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></SignUpButton>
                                    <SignInButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></SignInButton>

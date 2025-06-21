@@ -21,12 +21,12 @@ import { SignOutButton } from "@clerk/nextjs"
 const items = [
   {
     title: "All Courses",
-    url: "/dashboard",
+    url: "/student-dashboard",
     icon: BookOpen,
   },
   {
-    title: "Your Courses",
-    url: "/dashboard/your-courses",
+    title: "My Courses",
+    url: "/student-dashboard/my-courses",
     icon: BookOpenText,
   },
   {
@@ -36,7 +36,7 @@ const items = [
   },
   {
     title: "Settings",
-    url: "/dashboard/settings",
+    url: "/student-dashboard/settings",
     icon: Settings,
   },
 ]

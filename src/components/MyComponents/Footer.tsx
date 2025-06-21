@@ -7,7 +7,7 @@ function Footer() {
 
      const { isDarkMode } = useDarkModeStore()
   return (
-     <section id='footer' className="p-4 md:px-0 bg-black dark:bg-white">
+     <footer id='footer' className="p-4 md:px-0 bg-black dark:bg-white">
           <div className='container px-4 md:px-8 py-10 mx-auto'>
                <div className="flex flex-col md:flex-row gap-16">
                     <div className="md:w-3/4">
@@ -38,7 +38,7 @@ function Footer() {
                </div>
 
           </div>
-     </section>
+     </footer>
   )
 }
 

@@ -7,9 +7,6 @@ function page() {
 
      const { isDarkMode,toggleDarkMode } = useDarkModeStore()  
 
-     // Apply or remove the dark class on the html element
-
-
   return (
     <div>
      <div>

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import CheckLogin from "@/components/MyComponents/CheckLogin";
 import {
   ClerkProvider,
-  SignedIn,
-  UserButton,
+
 } from '@clerk/nextjs'
 import "./globals.css";
 import DarkModeProvider from "@/components/MyComponents/DarkModeProvider";
@@ -22,12 +22,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
+          <CheckLogin/>
           <DarkModeProvider/>
-          {/* <header className="flex justify-end items-center p-4 gap-4 h-16">
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header> */}
           {children}
         </body>
       </html>

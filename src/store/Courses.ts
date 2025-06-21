@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 type Course = {
   title: string;
@@ -8,14 +8,18 @@ type Course = {
 
 type EnrolledCourseType = {
   enrolledCourses: Course[]; // Array of enrolled courses
-  setEnrolledCourses: (course: Course) => void; // Function to add a course
+  setEnrolledCourses: (courses: Course[]) => void; // Function to set courses
+  addEnrolledCourse: (course: Course) => void; // Function to add a single course
 };
 
 const useEnrolledCourseStore = create(
   persist<EnrolledCourseType>(
     (set, get) => ({
       enrolledCourses: [],
-      setEnrolledCourses: (course: Course) => {
+      setEnrolledCourses: (courses: Course[]) => {
+        set({ enrolledCourses: courses }); // Replace the entire array
+      },
+      addEnrolledCourse: (course: Course) => {
         const { enrolledCourses } = get();
         const isAlreadyEnrolled = enrolledCourses.some((c) => c.title === course.title);
         if (!isAlreadyEnrolled) {
@@ -24,7 +28,8 @@ const useEnrolledCourseStore = create(
       },
     }),
     {
-      name: "enrolled-courses-storage", // Key for localStorage
+      name: "enrolled-courses-storage", // Key for sessionStorage
+      storage: createJSONStorage(() => sessionStorage),
     }
   )
 );

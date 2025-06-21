@@ -11,7 +11,7 @@ function page() {
   return (
     <div className='w-full h-full'>
       <div className=' p-6'>
-        <h1 className='text-2xl font-bold mb-4'>Your Courses</h1>
+        <h1 className='text-2xl font-bold mb-4'>My Courses</h1>
       </div>
       <div className='w-full'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 p-6'>
