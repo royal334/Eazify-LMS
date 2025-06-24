@@ -1,6 +1,6 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { AuthDto, SignInDto } from './dto';
+import { AuthDto, SignInDto, TeacherCreateDto } from './dto';
 import * as argon2 from 'argon2';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { ConfigService } from '@nestjs/config';
@@ -37,6 +37,40 @@ export class AuthService {
         }
       }
 
+      throw error;
+    }
+  }
+
+  async createTeacher(dto: TeacherCreateDto, secretKey: string) {
+    const teacherSecret = this.config.get<string>('TEACHER_CREATION_SECRET');
+
+    if (secretKey !== teacherSecret) {
+      throw new ForbiddenException(
+        'Credentials incorrect for teacher creation',
+      );
+    }
+
+    try {
+      const hashStr = String(dto.hash);
+      const hashedPassword = await argon2.hash(hashStr);
+
+      const user = await this.prisma.user.create({
+        data: {
+          email: dto.email,
+          hash: hashedPassword,
+          role: 'TEACHER',
+        },
+      });
+      return {
+        token: await this.signToken(user.id, user.email),
+        user,
+      };
+    } catch (error) {
+      if (error instanceof PrismaClientKnownRequestError) {
+        if (error.code === 'P2002') {
+          throw new ForbiddenException('Credentials taken');
+        }
+      }
       throw error;
     }
   }

@@ -25,7 +25,6 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
 
     // Remove hash from the user object
     const { hash: _, ...userWithoutHash } = user;
-    console.log("user =========> ", userWithoutHash)
     return userWithoutHash;
   }
 }

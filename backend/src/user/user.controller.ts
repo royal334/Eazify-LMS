@@ -21,7 +21,13 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  findAll() {
+  findAll(@GetUser('role') role: string) {
+    const isTeacher = role === 'TEACHER'
+
+    if (!isTeacher) {
+      throw new ForbiddenException('Not Authorized!');
+    }
+
     return this.userService.findAll();
   }
 
