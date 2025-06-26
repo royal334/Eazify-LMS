@@ -1,6 +1,6 @@
 'use client'
 import useEnrolledCourseStore from "@/store/Courses"
-import { toast, ToastContainer } from 'react-toastify' 
+// import { toast, ToastContainer } from 'react-toastify' 
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 
@@ -11,8 +11,8 @@ function DashboardCourse(props: {  title: string,  description: string}) {
 
     function handleEnroll(){
        if(!enrolledState){
-        setEnrolledCourses(props)
-        toast('You have successfully enrolled')
+         setEnrolledCourses([...enrolledCourses, { title: props.title, description: props.description }]);
+        // toast('You have successfully enrolled')
        }
       
     }
@@ -29,7 +29,7 @@ function DashboardCourse(props: {  title: string,  description: string}) {
             <div></div>
             <span onClick={handleEnroll} className={`{${enrolledState ? 'text-bright-blue': 'md:text-sky-blue'} text-sm text-bright-blue  hover:text-bright-blue cursor-pointer font-extralight hover:underline inter`}>{enrolledState ?'Enrolled': 'Enroll Now'}</span>
        </div>
-       <ToastContainer/>
+       {/* <ToastContainer/> */}
        
        </div>
      </Link>

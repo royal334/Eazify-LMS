@@ -1,4 +1,4 @@
-function page({params}: {params: Promise<{courseid: string}>}) {
+function page() {
   return (
     <div>page</div>
   )

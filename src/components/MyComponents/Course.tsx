@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { easeIn, motion } from "motion/react";
 
 type CourseProps = {

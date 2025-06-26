@@ -1,9 +1,8 @@
 "use client"
-import { useForm } from 'react-hook-form'
 import Link from 'next/link'
 import RoleCard from './components/RoleCard'
 import useUserRoleStore from '@/store/UserRoles'
-function page() {
+function SelectRole() {
 
   const  { role, setRole } = useUserRoleStore()
 
@@ -59,4 +58,4 @@ function page() {
   )
 }
 
-export default page
+export default SelectRole

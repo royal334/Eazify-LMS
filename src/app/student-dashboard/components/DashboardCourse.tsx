@@ -1,8 +1,8 @@
 'use client'
 import useEnrolledCourseStore from "@/store/Courses"
 //import { toast, ToastContainer } from 'react-toastify' 
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
+//import { Badge } from "@/components/ui/badge"
+
 
 function DashboardCourse(props: {  title: string,  description: string}) {
   const { enrolledCourses, setEnrolledCourses } = useEnrolledCourseStore()
@@ -23,7 +23,6 @@ function DashboardCourse(props: {  title: string,  description: string}) {
        <div className="p-6 bg-white hover:bg-white/[0.8] rounded-lg shadow-lg flex flex-col justify-between w-full h-full">
        <div className="flex items-center justify-between">
          <h3 className="text-xl font-semibold text-charcoal-black">{props.title}</h3>
-         <Badge></Badge>
        </div>
        <p className="mt-4 text-gray-800 text-[12px] inter">{props.description}</p>
        <div className='flex justify-between items-center mt-6'>

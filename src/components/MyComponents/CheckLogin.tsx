@@ -17,14 +17,14 @@ function CheckLogin() {
          router.push("/select-role");
        }
 
-     //   if (!isSignedIn) {
-     //      // Reset role to default and clear session storage when logged out
-     //      setRole(null);
-     //      setEnrolledCourses([])
-     //      sessionStorage.removeItem("enrolled-courses-storage")
-     //      sessionStorage.removeItem("user-role-storage");
-     //    }
-     }, [isSignedIn, router, pathname, role, setRole, setEnrolledCourses,]);
+       if (!isSignedIn) {
+          // Reset role to default and clear session storage when logged out
+          setEnrolledCourses([])
+          setRole(null)
+          sessionStorage.removeItem("user-role-storage")
+          sessionStorage.removeItem("enrolled-courses-storage")
+        }
+     }, [isSignedIn, router, pathname, role, setEnrolledCourses,]);
   return null
 }
 
