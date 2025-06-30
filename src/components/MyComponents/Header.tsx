@@ -16,7 +16,7 @@ function Header() {
           setIsOpen(prev => !prev)
      }
 
-     function handleSmoothScroll(e:any, targetId:string){
+     function handleSmoothScroll(e:React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId:string){
           e.preventDefault();
           const targetElement = document.getElementById(targetId)
           if(targetElement){
@@ -35,7 +35,7 @@ function Header() {
   return (
     <header id="header" className="container mx-auto sticky top-[5px] left-0 right-0 z-50 px-4  shadow-lg rounded-xl" style={style} >
           <div className="container flex items-center justify-between px-4 py-4 ">
-               <a href="/"><img src="/images/logo-1.png" alt="logo" className="w-[130px] md:px-0 md:w-[190px] px-4"/></a>
+               <Link href="/"><img src="/images/logo-1.png" alt="logo" className="w-[130px] md:px-0 md:w-[190px] px-4"/></Link>
                
                <nav className="hidden w-full md:flex md:justify-between md:items-center">
                     

@@ -1,9 +1,8 @@
 'use client'
 import { Switch } from '@/components/ui/switch';
-import { useEffect } from 'react'
 import useDarkModeStore from '@/store/DarkMode';
 
-function page() {
+function Page() {
 
      const { isDarkMode,toggleDarkMode } = useDarkModeStore()  
 
@@ -27,4 +26,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
