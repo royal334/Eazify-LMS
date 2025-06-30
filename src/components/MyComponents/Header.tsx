@@ -5,12 +5,11 @@ import { motion } from "motion/react"
 import DarModeToggle from "./DarModeToggle"
 import Link from "next/link"
 // import { SignedOut,SignInButton,SignUpButton, SignedIn, UserButton } from "@clerk/nextjs"
-import useUserRoleStore from "@/store/UserRoles"
+
 
 function Header() {
 
      const [isOpen, setIsOpen] = useState(false);
-     const { role } = useUserRoleStore()
 
      function toggleMenu(){
           setIsOpen(prev => !prev)

@@ -1,7 +1,6 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import AppSidebar from "./components/AppSidebar"
 import { Inter } from "next/font/google";
-import { SignedIn, UserButton } from "@clerk/nextjs"
 import { Bell } from 'lucide-react';
 
 
@@ -20,12 +19,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <main className=" w-full ">
           <div className="bg-white dark:bg-black py-2 flex justify-between ">
             <SidebarTrigger  />
-            <div className="mr-2 flex gap-4 items-center">
+            {/* <div className="mr-2 flex gap-4 items-center">
               <SignedIn>
               <Bell/>
                 <UserButton/>
               </SignedIn>
-            </div>
+            </div> */}
           </div>
           {children}
         </main>

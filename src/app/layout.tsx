@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
 import CheckLogin from "@/components/MyComponents/CheckLogin";
-import {
-  ClerkProvider,
-
-} from '@clerk/nextjs'
 import "./globals.css";
 import DarkModeProvider from "@/components/MyComponents/DarkModeProvider";
 
@@ -19,7 +15,6 @@ export default function RootLayout({
 }>) {
 
   return (
-    <ClerkProvider>
       <html lang="en">
         <body>
           <CheckLogin/>
@@ -27,6 +22,5 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </ClerkProvider>
   );
 }
