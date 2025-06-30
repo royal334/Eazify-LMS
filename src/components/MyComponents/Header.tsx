@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react"
 import { motion } from "motion/react"
 import DarModeToggle from "./DarModeToggle"
 import Link from "next/link"
-import { SignedOut,SignInButton,SignUpButton, SignedIn, UserButton } from "@clerk/nextjs"
+// import { SignedOut,SignInButton,SignUpButton, SignedIn, UserButton } from "@clerk/nextjs"
 import useUserRoleStore from "@/store/UserRoles"
 
 function Header() {
@@ -46,17 +46,17 @@ function Header() {
                               <li className="font-semibold"><Link onClick={(e) => {handleSmoothScroll(e,'footer')}} href="#footer"  className="hover:text-bright-blue">Contact</Link></li>
                     </ul>
                     <div className="ml-auto flex items-center gap-4 ">
-                         <SignedIn>
+                         {/* <SignedIn>
                               <button className="bg-bright-blue px-2 py-1 text-white  rounded"><Link  href={`/${role}-dashboard`} className="inter">Dashboard</Link></button>
-                         </SignedIn>
+                         </SignedIn> */}
                          <DarModeToggle/>
-                         <SignedOut>
-                              <SignUpButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></SignUpButton>
-                              <SignInButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></SignInButton>
-                         </SignedOut>
-                         <SignedIn>
+                    
+                              <motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button>
+                              <motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button>
+                         
+                         {/* <SignedIn>
                               <UserButton/>
-                         </SignedIn>
+                         </SignedIn> */}
                     </div>
                     
                </nav>
@@ -79,13 +79,13 @@ function Header() {
                                    <li className="font-semibold" onClick={toggleMenu}><Link onClick={(e) => {handleSmoothScroll(e,'footer')}} href="#footer"  className="text-bright-blue">Contact</Link></li>
                               </ul>
                               <div className="flex justify-center mb-4 flex-col w-fit mx-auto gap-4 ">
-                              <SignedIn>
+                              {/* <SignedIn>
                               <button className="bg-bright-blue px-2 py-1 text-white  rounded"><Link href={`/${role}-dashboard`} className="inter">Dashboard</Link></button>
-                         </SignedIn>
-                              <SignedOut>
-                                   <SignUpButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></SignUpButton>
-                                   <SignInButton><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></SignInButton>
-                              </SignedOut>
+                         </SignedIn> */}
+                              
+                                   <motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button>
+                                   <motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button>
+                              
                               </div>
                          </div>
                     )
