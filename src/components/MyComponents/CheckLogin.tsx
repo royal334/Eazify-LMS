@@ -1,15 +1,15 @@
 "use client"
-import { useRouter, usePathname  } from "next/navigation";
-import { useEffect } from "react";
+// import { useRouter, usePathname  } from "next/navigation";
+// // import { useEffect } from "react";
 
-import useUserRoleStore from "@/store/UserRoles";
-import useEnrolledCourseStore from "@/store/Courses";
+// import useUserRoleStore from "@/store/UserRoles";
+// import useEnrolledCourseStore from "@/store/Courses";
 
 function CheckLogin() {
-     const router = useRouter();
-     const pathname = usePathname()
-     const { role, setRole } = useUserRoleStore()
-     const { setEnrolledCourses} = useEnrolledCourseStore()
+    //  const router = useRouter();
+    //  const pathname = usePathname()
+    //  const { role, setRole } = useUserRoleStore()
+    //  const { setEnrolledCourses} = useEnrolledCourseStore()
    
     //  useEffect(() => {
     //    if (isSignedIn && !role  && pathname !== "/select-role") {

@@ -2,7 +2,6 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import AppSidebar from "./components/AppSidebar"
 import { Inter } from "next/font/google";
 
-import { Bell } from 'lucide-react';
 
 
 const inter = Inter({
