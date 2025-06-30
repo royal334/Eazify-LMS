@@ -3,7 +3,7 @@
 import React from 'react'
 import useEnrolledCourseStore from '@/store/Courses'
 import DashboardCourse from '../components/DashboardCourse'
-function page() {
+function Page() {
 
   const { enrolledCourses } = useEnrolledCourseStore()
   console.log(enrolledCourses.length)
@@ -30,4 +30,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
