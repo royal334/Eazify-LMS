@@ -1,4 +1,4 @@
-import { Search, Settings,BookOpen, BookOpenText,LogOut } from "lucide-react"
+import { LayoutDashboard, Settings,BookOpen, BookOpenText,LogOut } from "lucide-react"
 import Image from "next/image"
 
 
@@ -16,24 +16,24 @@ import {
 
 // Menu items.
 const items = [
+    {
+    title: "Dashoard",
+    url: "#",
+    icon: LayoutDashboard,
+  },
   {
     title: "All Courses",
-    url: "/student-dashboard",
+    url: "/instructor-dashboard",
     icon: BookOpen,
   },
   {
     title: "My Courses",
-    url: "/student-dashboard/my-courses",
+    url: "/instructor-dashboard/my-courses",
     icon: BookOpenText,
   },
   {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
     title: "Settings",
-    url: "/student-dashboard/settings",
+    url: "/instructor-dashboard/settings",
     icon: Settings,
   },
 ]

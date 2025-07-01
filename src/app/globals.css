@@ -140,6 +140,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+/*Not found Page*/
+.not-found{ 
+    font-family: 'Whyte Inktrap', sans-serif;
+    font-weight: bold;
+}
+
 p, li, span {
   font-family: 'Grotesk', sans-serif;
   font-weight: bold;
