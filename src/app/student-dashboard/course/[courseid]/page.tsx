@@ -1,7 +1,7 @@
-function page({params}: {params: Promise<{courseid: string}>}) {
+function Page() {
   return (
     <div>page</div>
   )
 }
 
-export default page
+export default Page

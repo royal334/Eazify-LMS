@@ -1,6 +1,6 @@
-import { Calendar, Search, Settings,BookOpen, BookOpenText,LogOut } from "lucide-react"
+import { LayoutDashboard, Settings,BookOpen, BookOpenText,LogOut } from "lucide-react"
 import Image from "next/image"
-import Link from 'next/link'
+
 
 import {
   Sidebar,
@@ -14,11 +14,15 @@ import {
   SidebarFooter
 } from "@/components/ui/sidebar"
 
-import { SignOutButton } from "@clerk/nextjs"
 
 
 // Menu items.
 const items = [
+    {
+    title: "Dashoard",
+    url: "#",
+    icon: LayoutDashboard,
+  },
   {
     title: "All Courses",
     url: "/student-dashboard",
@@ -28,11 +32,6 @@ const items = [
     title: "My Courses",
     url: "/student-dashboard/my-courses",
     icon: BookOpenText,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
   },
   {
     title: "Settings",
@@ -64,11 +63,10 @@ function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className="bg-bright-blue">
-          <SignOutButton redirectUrl="/">
+
             <button className="w-full border-2 border-white text-white py-2 rounded-md hover:bg-sky-blue cursor-pointer flex items-center justify-center">
               LOG OUT<LogOut className="ml-2"/>
             </button>
-          </SignOutButton>
       </SidebarFooter>
     </Sidebar>
   )
