@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import CheckLogin from "@/components/MyComponents/CheckLogin";
 import "./globals.css";
-import DarkModeProvider from "@/components/MyComponents/DarkModeProvider";
+
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "Eazify Academy",
@@ -13,14 +15,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
 
   return (
-      <html lang="en">
-        <body>
-          <CheckLogin/>
-          <DarkModeProvider/>
-          {children}
-        </body>
-      </html>
+        <html lang="en">
+          <body>
+            <Providers>{children}</Providers>
+            
+          </body>
+        </html>
   );
 }
