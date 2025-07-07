@@ -29,24 +29,24 @@ function SignUpForm() {
 
   const { errors } = formState
 
-  async function onSubmit(data: FormDataTypes){
-      const res = await axios.post("/api/auth/sign-in",
-      {email: data.email, password: data.password}
-    );
-      if (res.data.success) {
-  // Redirect to dashboard or update UI
-  router.push(`/${role}/dashboard`)
-}
-      else{
-        console.error("Login failed:", res.data.error);
-        alert("Log in failed")
-        // Handle error, e.g., show a notification or alert
-      }
-  }
+//   async function onSubmit(data: FormDataTypes){
+//       const res = await axios.post("/api/auth/sign-in",
+//       {email: data.email, password: data.password}
+//     );
+//       if (res.data.success) {
+//   // Redirect to dashboard or update UI
+//   router.push(`/${role}/dashboard`)
+// }
+//       else{
+//         console.error("Login failed:", res.data.error);
+//         alert("Log in failed")
+//         // Handle error, e.g., show a notification or alert
+//       }
+//   }
   return (
     <div>
       <Image src='/images/logo-1.png' alt="logo" width={200} height={200} className="m-5"/>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form >
         <div className="flex flex-col items-center justify-center h-[70vh] text-center ">
           <h1 className="text-2xl font-bold mb-4">Sign In</h1>
           <div className="flex flex-col items-start">

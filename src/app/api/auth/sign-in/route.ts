@@ -19,19 +19,19 @@ const res = await axios.post(
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 
-  const token = res.data.token; // Adjust according to your API response
+  //const token = res.data.token; // Adjust according to your API response
 
   // Set HTTP-only cookie
-  const response = NextResponse.json({ success: true });
-  response.cookies.set("token", token, {
-    httpOnly: true,
-    path: "/",
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-    maxAge: 60 * 60 * 24, // 1 day
-  });
+  // const response = NextResponse.json({ success: true });
+  // response.cookies.set("token", token, {
+  //   httpOnly: true,
+  //   path: "/",
+  //   sameSite: "lax",
+  //   secure: process.env.NODE_ENV === "production",
+  //   maxAge: 60 * 60 * 24, // 1 day
+  // });
 
-  return response;
+  // return response;
 }
   catch (error) {
     console.error("Login error:", error); 
