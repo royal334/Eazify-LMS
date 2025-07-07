@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import axios from 'axios'
 
 export async function POST(req: NextRequest) {
-  const { email, password } = await req.json();
+  const {  email, password } = await req.json();
 
     if (!email || !password) {
     return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
   try{
   // Call your Swagger backend endpoint
 const res = await axios.post(
-  "https://eazify-lms-backend.onrender.com/auth/login",
+  "https://eazify-lms-backend.onrender.com/auth/register",
   { email, password },
   { headers: { "Content-Type": "application/json" } }
 );

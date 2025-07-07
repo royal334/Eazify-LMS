@@ -8,9 +8,10 @@ import useUserRoleStore from "@/store/UserRoles"
 type FormDataTypes = {
   email:string
   password:string
+  role: string
 }
 
-function SignInForm() {
+function SignUpForm() {
 
     const { role } = useUserRoleStore()
     const router = useRouter()
@@ -20,7 +21,8 @@ function SignInForm() {
       mode: "onSubmit",
       defaultValues: {
         email: "",
-        password: ""
+        password: "",
+        role:''
       }
     }
   );
@@ -68,6 +70,33 @@ function SignInForm() {
                />
           </div>
 
+          <div className="flex items-center gap-4">
+               <div className="flex items-center gap-2">
+                    <label htmlFor="student">Student</label>
+                    <input
+                    type="radio"
+                    className="h-4 w-4 text-bright-blue border-gray-300 rounded focus:ring-bright-blue"
+                    {...register("role", { required: "Role is required" })}
+                    value="student"
+                    />
+               </div>
+               <div className="flex items-center gap-2">
+                    <label htmlFor="instructor">Instructor</label>
+                    <input 
+                    type="radio"
+                    
+                    />
+               </div>
+          </div>
+
+          <label className="flex items-center mt-2">
+          <input
+               type="checkbox"
+               className="h-4 w-4 text-bright-blue border-gray-300 rounded focus:ring-bright-blue"
+          />
+          <span className="ml-2 text-sm text-gray-400">Remember me</span>
+          </label>
+
           {errors.password && <span className="text-red-500 text-sm mb-2">{errors.password.message}</span>}
           <button
             type="submit"
@@ -81,4 +110,4 @@ function SignInForm() {
   )
 }
 
-export default SignInForm
+export default SignUpForm
