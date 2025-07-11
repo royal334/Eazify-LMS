@@ -13,7 +13,7 @@ type UserRoleState = {
       }),
       {
         name: 'user-role-storage', // Key for sessionStorage
-        storage: createJSONStorage(() => sessionStorage)
+
       }
     )
   );
