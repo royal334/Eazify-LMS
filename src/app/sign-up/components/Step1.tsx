@@ -1,17 +1,22 @@
 "use client"
 import { useState } from "react"
-import useUserRoleStore from "@/store/UserRoles"
+import { useRouter } from "next/navigation"
 import LogoPlacement from "./LogoPlacement"
+import useUserRoleStore from "@/store/UserRoles"
 import Image from "next/image"
-import Link from 'next/link'
+import  useRegistrationStore  from "@/store/Registeration"
 
 function Step1() {
   const [selectedRole, setSelectedRole] = useState<"instructor" | "student" | null>(null)
+  const router = useRouter()
   const { setRole } = useUserRoleStore()
+  const { setField }= useRegistrationStore()
 
   function handleSelect(role: "instructor" | "student") {
     setSelectedRole(role)
     setRole(role)
+    setField('role', role.toUpperCase())
+    
   }
 
   return (
@@ -31,7 +36,7 @@ function Step1() {
           <Image src='/images/student.png' alt="" height={285} width={424}/>
         </div>
 
-      <button disabled={selectedRole === null} className={`bg-bright-blue px-6 py-3 font-semibold text-white rounded-full mt-3 self-end w-fit ${selectedRole === null ? 'opacity-50 cursor-not-allowed': 'opacity-100 cursor-pointer'}`}><Link href='/sign-up/step2'>Next</Link></button>
+      <button onClick={() => {router.push('/sign-up/step2')}} disabled={selectedRole === null} className={`bg-bright-blue px-6 py-3 font-semibold text-white rounded-full mt-3 self-end w-fit ${selectedRole === null ? 'opacity-50 cursor-not-allowed': 'opacity-100 cursor-pointer'}`}>Next</button>
       </div>
     </div>
   )

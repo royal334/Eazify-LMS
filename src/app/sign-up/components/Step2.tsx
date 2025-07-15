@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import useRegistrationStore from "@/store/Registeration";
 
 type FormDataTypes={
   email:string
@@ -22,10 +23,13 @@ function Step2() {
 
   const { errors, isValid } = formState;
   const router = useRouter()
+  const { setField } = useRegistrationStore()
 
-  const onSubmit = async () =>{
-    
+  function onSubmit(data:FormDataTypes){
+    setField('email', data.email )
+    setField('password', data.password)
     router.push('/sign-up/step3')
+
   }
 
         const styles={

@@ -1,8 +1,8 @@
-import React from 'react'
+import Step4 from "../components/Step4"
 
 function Page() {
   return (
-    <div>Page</div>
+    <Step4/>
   )
 }
 

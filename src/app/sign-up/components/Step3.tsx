@@ -9,15 +9,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-
+import useRegistrationStore from "@/store/Registeration";
+import { useRouter } from "next/navigation";
 
 type FormDataTypes={
      firstname:string
      lastname:string
+     gender: string
 }
 function Step3() {
 
-  const { register, handleSubmit, formState } = useForm<FormDataTypes>(
+  const { register, handleSubmit, formState,setValue,watch } = useForm<FormDataTypes>(
     {
       mode: 'onBlur',
       defaultValues: {
@@ -28,6 +30,14 @@ function Step3() {
   );
 
   const { errors, isValid } = formState;
+  const { setField } = useRegistrationStore()
+  const router = useRouter()
+
+  function OnSubmit(data:FormDataTypes){
+    setField('firstname', data.firstname)
+    setField('lastname', data.lastname)
+    router.push('/sign-up/step4')
+  }
 
         const styles={
           backgroundColor: "rgba(255, 255, 255, 0.2)", // Transparent white background
@@ -49,7 +59,7 @@ function Step3() {
             <h1 className="text-charcoal-black text-5xl font-bold text-center ">Set up your account</h1>
             <p className="text-[#3F3F3F] mt-2 mb-4 text-center">Your are one step to achieving your dream</p>
             <div className="mx-auto w-1/2 mt-14">
-              <form onSubmit={handleSubmit((data) => console.log(data))} className="flex flex-col gap-4 ">
+              <form onSubmit={handleSubmit(OnSubmit)} className="flex flex-col gap-4 ">
                 <div className="flex flex-col gap-1">
                   <Label htmlFor="firstname" className="text-sm font-semibold">First Name</Label>
                   <input
@@ -74,19 +84,21 @@ function Step3() {
                   {errors.lastname && <span className="text-red-500 text-sm">{errors.lastname.message}</span>}
                 </div>
 
-               <Select>
+               <Select
+                value={watch('gender')}
+                onValueChange={val => setValue('gender', val)}
+               >
                     <SelectTrigger className="w-full">
                          <SelectValue placeholder="Select your gender" />
                     </SelectTrigger>
                     <SelectContent>
                          <SelectItem value="male">Male</SelectItem>
-                         <SelectItem value="femaile">Female</SelectItem>
+                         <SelectItem value="female">Female</SelectItem>
                     </SelectContent>
                </Select>
+               {errors.gender && <span className="text-red-500 text-sm">{errors.gender.message}</span>}
 
                 <button type="submit" disabled={!isValid} className={`bg-[#0071FF] text-white p-3 rounded-lg cursor-pointer transition duration-200 disabled:bg-[#0071FF99] disabled:cursor-not-allowed`}>Continue</button>
-                <p className="text-sm text-[#5E6368] text-center ">Or continue with</p>
-                <button className="rounded-lg cursor-pointer p-3 bg-[#E0E0E0] flex justify-center items-center"><Image src='/images/google.png' alt="sign up with google" width={24} height={24}/></button>
               </form> 
             </div>
 

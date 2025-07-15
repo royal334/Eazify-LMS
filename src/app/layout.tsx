@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import CheckLogin from "@/components/MyComponents/CheckLogin";
+
 import "./globals.css";
 
 import Providers from "@/components/Providers";

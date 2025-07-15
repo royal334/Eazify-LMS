@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware';
+import { persist } from 'zustand/middleware';
 type UserRoleState = {
      role: string | null; // Define roles
      setRole: (role: string | null) => void; // Function to set role
@@ -12,8 +12,7 @@ type UserRoleState = {
         setRole: (role) => set({ role }),
       }),
       {
-        name: 'user-role-storage', // Key for sessionStorage
-
+        name: 'user-role-storage', 
       }
     )
   );
