@@ -23,7 +23,7 @@ export const useRegister = () => {
       return response;
     },
 
-    onError: (error) => {
+    onError: () => {
       toast.error("Registration failed");
     },
   });
