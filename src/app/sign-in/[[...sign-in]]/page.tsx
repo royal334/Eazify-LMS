@@ -1,18 +1,10 @@
-// import { cookies } from "next/headers";
-import SignInForm from "./SignInForm";
-//import { redirect } from "next/navigation";
 
-
+import Step1 from "../components/Step1";
 
 function Page() {
 
-  // const token = cookies().get('token')?.value
-  // if (token){
-  //   redirect('/dashboard')
-  // }
-
   return (
-    <SignInForm/>
+    <Step1/>
   )
 }
 

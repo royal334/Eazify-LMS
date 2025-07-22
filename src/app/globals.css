@@ -231,3 +231,21 @@ p, li, span {
   background-color: rgba(0, 62, 140, 0.4);
   background-blend-mode: overlay;
 }
+
+.step1{
+  background:url("/images/log-in-background.png"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 62, 140, 0.4);
+  background-blend-mode: overlay;
+}
+
+.step1-mobile{
+  background-image:url("/images/log-in-mobile-background.jpg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-color:  rgba(0, 62, 140, 0.4);
+}
+

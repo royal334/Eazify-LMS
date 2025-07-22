@@ -3,10 +3,10 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
 type RegisterPayload = {
-  name?: string;
-  email?: string;
-  hash?: string;
-  role?: string;
+  name: string;
+  email: string;
+  hash: string;
+  role: string;
 };
 
 type RegisterResponse = {
@@ -22,10 +22,7 @@ export const useRegister = () => {
       });
       return response;
     },
-    // onSuccess: (data) => {
-    // //   storeToken(data.access_token);
-    //   router.push("/login");
-    // },
+
     onError: (error) => {
       toast.error("Registration failed");
     },

@@ -27,20 +27,7 @@ function SignInForm() {
 
   const { errors } = formState
 
-//   async function onSubmit(data: FormDataTypes){
-//       const res = await axios.post("/api/auth/sign-in",
-//       {email: data.email, password: data.password}
-//     );
-//       if (res.success) {
-//   // Redirect to dashboard or update UI
-//   router.push(`/${role}/dashboard`)
-// }
-//       else{
-//         console.error("Login failed:", res.data.error);
-//         alert("Log in failed")
-//         // Handle error, e.g., show a notification or alert
-//       }
-//   }
+
   return (
     <div>
       <Image src='/images/logo-1.png' alt="logo" width={200} height={200} className="m-5"/>

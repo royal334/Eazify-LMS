@@ -28,7 +28,6 @@ export const useLogin = () => {
       storeToken(data.access_token);
     },
     onError: (error) => {
-      toast.error("Login failed. Please check your credentials.");
       console.error("Login failed:", error);
     },
   });

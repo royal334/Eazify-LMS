@@ -1,10 +1,9 @@
 'use client'
-
-import { ClerkProvider } from '@clerk/nextjs'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from '@/lib/react-query'
 import DarkModeProvider from './MyComponents/DarkModeProvider'
-import CheckLogin from './MyComponents/CheckLogin'
+
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +12,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         {/* <CheckLogin /> */}
         <DarkModeProvider />
         {children}
+        <ReactQueryDevtools
+        
+        />
       </QueryClientProvider>
     // </ClerkProvider>
   )

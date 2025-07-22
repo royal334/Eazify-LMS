@@ -3,11 +3,11 @@ import { create } from "zustand";
 
 
 type RegistrationStateTypes = {
-  role?: string;
-  email?: string;
-  password?: string;
-  firstname?: string;
-  lastname?: string;
+  role: string;
+  email: string;
+  password: string;
+  firstname: string;
+  lastname: string;
   gender?: string ;
   skilllevel?: string
   setField: (field: keyof RegistrationStateTypes, value: string) => void;
