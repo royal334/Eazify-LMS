@@ -1,6 +1,5 @@
 import { storeToken } from "@/lib/auth";
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "react-toastify";
 import { apiFetch } from "@/lib/fetch-api";
 
 type LoginPayload = {
