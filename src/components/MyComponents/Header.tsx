@@ -47,7 +47,7 @@ function Header() {
                     <div className="ml-auto flex items-center gap-4 ">
                          <DarModeToggle/>
                     
-                              <motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button>
+                              <Link href='/sign-up'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></Link>
                               <Link href='/sign-in'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></Link>
                          
                          {/* <SignedIn>
@@ -79,8 +79,8 @@ function Header() {
                               <button className="bg-bright-blue px-2 py-1 text-white  rounded"><Link href={`/${role}-dashboard`} className="inter">Dashboard</Link></button>
                          </SignedIn> */}
                               
-                                   <motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button>
-                                   <motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button>
+                                   <Link href='/sign-up'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></Link>
+                                   <Link href='/sign-in'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></Link>
                               
                               </div>
                          </div>
