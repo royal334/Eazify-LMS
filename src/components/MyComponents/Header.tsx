@@ -52,9 +52,12 @@ function Header() {
                     
                </nav>
 
-               <nav className="md:hidden flex gap-2 items-center">
-                    <DarModeToggle/>
-                    <Menu onClick={toggleMenu}/>
+               <nav className="md:hidden flex gap-2 items-center justify-between w-full">
+                    <Link href="/"><img src="/images/logo-1.png" alt="logo" className="w-[104px] md:w-[104px]"/></Link>
+                    <div className="flex gap-2 items-center">
+                         <DarModeToggle/>
+                         <Menu onClick={toggleMenu}/>
+                    </div>
                </nav>
                
                {
@@ -70,10 +73,8 @@ function Header() {
                                    <li className="font-semibold" onClick={toggleMenu}><Link href="#footer"  className="text-bright-blue">Contact</Link></li>
                               </ul>
                               <div className="flex justify-center mb-4 flex-col w-fit mx-auto gap-4 ">
-
-                                   <button className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</button>
-                                   <button className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</button>
-
+                                   <Link href ='/sign-up'><button className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</button></Link>
+                                   <Link href = '/sign-in'><button className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</button></Link>
                               
                               </div>
                          </div>

@@ -85,7 +85,7 @@ function Step1() {
         />
         <button
           type="button"
-          className={`absolute right-3 ${errors.password ? "top-[40%]" :"top-[56%]"} text-gray-500`}
+          className={`absolute right-3 ${errors.password || isError ? "top-[40%]" :"top-[56%]"} text-gray-500`}
           tabIndex={-1}
           onClick={() => setShowPassword((prev) => !prev)}
           aria-label={showPassword ? "Hide password" : "Show password"}
