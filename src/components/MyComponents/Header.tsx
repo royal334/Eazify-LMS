@@ -70,8 +70,10 @@ function Header() {
                                    <li className="font-semibold" onClick={toggleMenu}><Link href="#footer"  className="text-bright-blue">Contact</Link></li>
                               </ul>
                               <div className="flex justify-center mb-4 flex-col w-fit mx-auto gap-4 ">
+
                                    <button className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</button>
                                    <button className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</button>
+
                               
                               </div>
                          </div>
