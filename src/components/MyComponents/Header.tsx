@@ -1,7 +1,8 @@
 'use client'
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
-import { motion } from "motion/react"
+import { Input } from '@/components/ui/input'
+
 import DarModeToggle from "./DarModeToggle"
 import Link from "next/link"
 // import { SignedOut,SignInButton,SignUpButton, SignedIn, UserButton } from "@clerk/nextjs"
@@ -15,44 +16,38 @@ function Header() {
           setIsOpen(prev => !prev)
      }
 
-     function handleSmoothScroll(e:React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId:string){
-          e.preventDefault();
-          const targetElement = document.getElementById(targetId)
-          if(targetElement){
-              targetElement.scrollIntoView({behavior: 'smooth'})
-          }
-      }
+     // function handleSmoothScroll(e:React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId:string){
+     //      e.preventDefault();
+     //      const targetElement = document.getElementById(targetId)
+     //      if(targetElement){
+     //          targetElement.scrollIntoView({behavior: 'smooth'})
+     //      }
+     //  }
 
-      const style={
-          backgroundColor: "rgba(255, 255, 255, 0.7)", // Transparent white background
-          backdropFilter: "blur(10px)", // Apply blur effect
-          WebkitBackdropFilter: "blur(10px)", // For Safari support
-          boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
-        }
+     //  const style={
+     //      backgroundColor: "rgba(255, 255, 255, 0.7)", // Transparent white background
+     //      backdropFilter: "blur(10px)", // Apply blur effect
+     //      WebkitBackdropFilter: "blur(10px)", // For Safari support
+     //      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+     //    }
      
 
   return (
-    <header id="header" className="container mx-auto sticky top-[5px] left-0 right-0 z-50 px-4  shadow-lg rounded-xl" style={style} >
-          <div className="container flex items-center justify-between px-4 py-4 ">
-               <Link href="/"><img src="/images/logo-1.png" alt="logo" className="w-[130px] md:px-0 md:w-[190px] px-4"/></Link>
-               
+    <header id="header" className=" sticky top-[16px] left-0 right-0 "  >
+          <div className="container mx-auto flex items-center justify-between px-5 py-3 bg-[#FEFEFE] shadow-lg rounded-[20px]">
                <nav className="hidden w-full md:flex md:justify-between md:items-center">
+                    <Link href="/"><img src="/images/logo-1.png" alt="logo" className="w-[104px] md:w-[104px]"/></Link>
                     
-                    <ul className="flex items-center justify-center gap-6 ml-auto" >
-                              <li className="font-semibold"><Link onClick={(e) => {handleSmoothScroll(e,'hero')}} href="/" className="hover:text-bright-blue">Home</Link></li>
-                              <li className="font-semibold"><Link onClick={(e) => {handleSmoothScroll(e,'about')}} href="#about"  className="hover:text-bright-blue">About</Link></li>
-                              <li className="font-semibold"><Link onClick={(e) => {handleSmoothScroll(e,'courses')}} href="#courses" className="hover:text-bright-blue">Courses</Link></li>
-                              <li className="font-semibold"><Link onClick={(e) => {handleSmoothScroll(e,'footer')}} href="#footer"  className="hover:text-bright-blue">Contact</Link></li>
+                    <ul className="flex items-center pl-10 gap-6 w-3/4" >
+                              <li className=""><Link href="/" className=" text-[#606060] hover:text-bright-blue text-sm">Home</Link></li>
+                              <li className=""><Input type="text" placeholder="What interest you to learn today?" className="text-[#A4A4A4] mr-8 text-sm input-with-icon rounded-[12px]"/></li>
+                              <li className=""><Link href=""  className="text-[#606060] hover:text-bright-blue text-sm">Resources</Link></li>
+                              <li className=""><Link href="/sign-up" className="text-[#606060] hover:text-bright-blue text-sm">Meet Eazify</Link></li>
+                              <li className=""><Link href=""  className="text-[#606060] hover:text-bright-blue text-sm">Become a tutor</Link></li>
                     </ul>
-                    <div className="ml-auto flex items-center gap-4 ">
-                         <DarModeToggle/>
-                    
-                              <Link href='/sign-up'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></Link>
-                              <Link href='/sign-in'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></Link>
-                         
-                         {/* <SignedIn>
-                              <UserButton/>
-                         </SignedIn> */}
+
+                    <div className=" ">
+                              <Link href='/sign-in'><button className="py-3 px-5 grotesk text-white rounded-[8px] cursor-pointer bg-bright-blue border border-sky-blue font-semibold">Sign in</button></Link>
                     </div>
                     
                </nav>
@@ -69,18 +64,16 @@ function Header() {
                                    <X onClick={toggleMenu}/>
                               </div>
                               <ul className="flex flex-col items-center justify-center gap-4 p-4">
-                                   <li className="font-semibold" onClick={toggleMenu}><Link onClick={(e) => {handleSmoothScroll(e,'hero')}} href="/" className="text-bright-blue">Home</Link></li>
-                                   <li className="font-semibold" onClick={toggleMenu}><Link onClick={(e) => {handleSmoothScroll(e,'about')}} href="#about"  className="text-bright-blue">About</Link></li>
-                                   <li className="font-semibold" onClick={toggleMenu}><Link onClick={(e) => {handleSmoothScroll(e,'courses')}} href="#courses" className="text-bright-blue">Courses</Link></li>
-                                   <li className="font-semibold" onClick={toggleMenu}><Link onClick={(e) => {handleSmoothScroll(e,'footer')}} href="#footer"  className="text-bright-blue">Contact</Link></li>
+                                   <li className="font-semibold" onClick={toggleMenu}><Link  href="/" className="text-bright-blue">Home</Link></li>
+                                   <li className="font-semibold" onClick={toggleMenu}><Link  href="#about"  className="text-bright-blue">About</Link></li>
+                                   <li className="font-semibold" onClick={toggleMenu}><Link href="#courses" className="text-bright-blue">Courses</Link></li>
+                                   <li className="font-semibold" onClick={toggleMenu}><Link href="#footer"  className="text-bright-blue">Contact</Link></li>
                               </ul>
                               <div className="flex justify-center mb-4 flex-col w-fit mx-auto gap-4 ">
-                              {/* <SignedIn>
-                              <button className="bg-bright-blue px-2 py-1 text-white  rounded"><Link href={`/${role}-dashboard`} className="inter">Dashboard</Link></button>
-                         </SignedIn> */}
-                              
-                                   <Link href='/sign-up'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</motion.button></Link>
-                                   <Link href='/sign-in'><motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</motion.button></Link>
+
+                                   <button className="px-6 py-3 font-semibold text-sky-blue hover:text-white rounded-full cursor-pointer bg-white border-2 border-sky-blue hover:bg-bright-blue">SIGN UP</button>
+                                   <button className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" >LOGIN</button>
+
                               
                               </div>
                          </div>

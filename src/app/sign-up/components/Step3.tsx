@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/select"
 import useRegistrationStore from "@/store/Registeration";
 import { useRouter } from "next/navigation";
+import useIsMobile from "@/hooks/useIsMobile";
 
 type FormDataTypes={
      firstname:string
@@ -31,6 +32,7 @@ function Step3() {
   const { errors, isValid } = formState;
   const { setField } = useRegistrationStore()
   const router = useRouter()
+  const isMobile = useIsMobile();
 
   function OnSubmit(data:FormDataTypes){
     setField('firstname', data.firstname)
@@ -93,7 +95,23 @@ function Step3() {
 
   return (
     <>
-      {/* Desktop */}
+{  isMobile ?       
+      <div className="flex flex-col md:hidden min-h-screen items-center">
+        <div className="w-full pb-6">
+          <div className="w-full bg-gradient-to-b from-[#4BA2FF] to-[#0071FF] px-4 pt-10 pb-8">
+            <div className="border rounded-[18px] p-4 border-gray-50/80" style={styles}>
+              <div className="bg-gradient-to-b from-[#000000] to-[#00285B] rounded-[15px] step2 min-h-[40vh] flex flex-col justify-end pl-1">
+              <h1 className="text-white text-2xl font-bold ">Set up your account</h1>
+              <p className="text-white mt-2 mb-4 text-sm">Your are one step to achieving your dream</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white w-full h-full p-4 mt-4">
+            {renderForm()}
+          </div>
+        </div>
+      </div> 
+      :
       <div className="hidden md:flex items-center justify-center h-screen p-11 ">
         <div className="step2 w-full rounded-4xl p-[40px] mx-auto">
           <div className="p-10  rounded-[38px]" style={styles}>
@@ -112,22 +130,7 @@ function Step3() {
           </div>
         </div>
       </div>
-      {/* Mobile */}
-      <div className="flex flex-col md:hidden min-h-screen items-center">
-        <div className="w-full pb-6">
-          <div className="w-full bg-gradient-to-b from-[#4BA2FF] to-[#0071FF] px-4 pt-10 pb-8">
-            <div className="border rounded-[18px] p-4 border-gray-50/80" style={styles}>
-              <div className="bg-gradient-to-b from-[#000000] to-[#00285B] rounded-[15px] step2 min-h-[40vh] flex flex-col justify-end pl-1">
-              <h1 className="text-white text-2xl font-bold ">Set up your account</h1>
-              <p className="text-white mt-2 mb-4 text-sm">Your are one step to achieving your dream</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white w-full h-full p-4 mt-4">
-            {renderForm()}
-          </div>
-        </div>
-      </div>
+}
     </>
   )
 }

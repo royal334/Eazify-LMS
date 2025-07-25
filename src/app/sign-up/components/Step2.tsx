@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import useRegistrationStore from "@/store/Registeration";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-
+import useIsMobile from "@/hooks/useIsMobile";
 type FormDataTypes={
   email:string
   password:string
@@ -14,6 +14,7 @@ type FormDataTypes={
 function Step2() {
 
   const [showPassword, setShowPassword] = useState(false);
+  const isMobile = useIsMobile();
   const { register, handleSubmit, formState } = useForm<FormDataTypes>(
     {
       mode: 'onChange',
@@ -88,19 +89,7 @@ function Step2() {
 
   return (
     <>
-      {/* Desktop */}
-      <div className="hidden md:flex items-center justify-center h-screen p-11 ">
-        <div className="step2 w-full rounded-4xl p-[40px] mx-auto">
-          <div className="p-10  rounded-[38px]" style={styles}>
-            <div className="bg-white w-full h-full p-10 rounded-[16px]">
-              <h1 className="text-charcoal-black text-5xl font-bold text-center ">Become a student</h1>
-              <p className="text-[#3F3F3F] mt-2 mb-4 text-center">Your are one step to achieving your dream</p>
-              <div className="mx-auto w-1/2 mt-14">{renderForm()}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Mobile */}
+{  isMobile ?      
       <div className="flex flex-col md:hidden min-h-screen items-center">
         <div className="w-full pb-6">
           <div className="w-full bg-gradient-to-b from-[#4BA2FF] to-[#0071FF] px-4 pt-10 pb-8">
@@ -112,7 +101,20 @@ function Step2() {
           </div>
           <div className="bg-white w-full h-full p-4 mt-4">{renderForm()}</div>
         </div>
+      </div>   
+      : 
+      <div className="hidden md:flex items-center justify-center h-screen p-11 ">
+        <div className="step2 w-full rounded-4xl p-[40px] mx-auto">
+          <div className="p-10  rounded-[38px]" style={styles}>
+            <div className="bg-white w-full h-full p-10 rounded-[16px]">
+              <h1 className="text-charcoal-black text-5xl font-bold text-center ">Become a student</h1>
+              <p className="text-[#3F3F3F] mt-2 mb-4 text-center">Your are one step to achieving your dream</p>
+              <div className="mx-auto w-1/2 mt-14">{renderForm()}</div>
+            </div>
+          </div>
+        </div>
       </div>
+}
     </>
   )
 }

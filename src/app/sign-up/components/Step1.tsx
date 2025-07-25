@@ -5,12 +5,14 @@ import LogoPlacement from "./LogoPlacement"
 import useUserRoleStore from "@/store/UserRoles"
 import Image from "next/image"
 import  useRegistrationStore  from "@/store/Registeration"
+import useIsMobile from "@/hooks/useIsMobile"
 
 function Step1() {
   const [selectedRole, setSelectedRole] = useState<"instructor" | "student" | null>(null)
   const router = useRouter()
   const { setRole } = useUserRoleStore()
   const { setField }= useRegistrationStore()
+  const isMobile = useIsMobile()
 
   function handleSelect(role: "instructor" | "student") {
     setSelectedRole(role)
@@ -65,8 +67,7 @@ function Step1() {
 
   return (
     <>
-      {renderDesktop()}
-      {renderMobile()}
+    { isMobile ? renderMobile() :  renderDesktop()}
     </>
   )
 }

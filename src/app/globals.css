@@ -146,9 +146,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
-p, li, span {
+p, span {
   font-family: 'Grotesk', sans-serif;
   font-weight: bold;
+}
+
+.grotesk {
+  font-family: 'Grotesk', sans-serif;
 }
 
 /* blockquote, .highlight {
@@ -249,3 +253,10 @@ p, li, span {
   background-color:  rgba(0, 62, 140, 0.4);
 }
 
+.input-with-icon {
+  background-image: url('/images/search-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-position: 5px center; /* Adjust position as needed */
+  background-size: 16px 16px; /* Adjust size as needed */
+  padding-left: 30px; /* Add padding to prevent text overlap */
+}
