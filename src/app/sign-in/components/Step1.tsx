@@ -8,6 +8,7 @@ import { useLogin } from "@/hooks/login";
 import { useUserProfile } from "@/hooks/user-profile";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import useIsMobile from "@/hooks/useIsMobile";
 
 type FormDataTypes={
   email:string
@@ -18,6 +19,7 @@ function Step1() {
   const { data } = useUserProfile();
   const role = data?.role;
   const [showPassword, setShowPassword] = useState(false);
+  const isMobile = useIsMobile();
 
   const { register, handleSubmit, formState } = useForm<FormDataTypes>(
     {
@@ -83,7 +85,7 @@ function Step1() {
         />
         <button
           type="button"
-          className="absolute right-3 top-[52%] text-gray-500"
+          className={`absolute right-3 ${errors.password ? "top-[40%]" :"top-[56%]"} text-gray-500`}
           tabIndex={-1}
           onClick={() => setShowPassword((prev) => !prev)}
           aria-label={showPassword ? "Hide password" : "Show password"}
@@ -102,22 +104,8 @@ function Step1() {
 
   return (
     <>
-      {/* Desktop */}
-      <div className="md:flex items-center justify-center h-screen p-11 hidden">
-        <div className="step1 w-full rounded-4xl p-[40px] mx-auto">
-          <div className="p-10  rounded-[38px]" style={styles}>
-            <div className="bg-white w-full h-full p-10 rounded-[16px]">
-              <h1 className="text-charcoal-black text-5xl font-bold text-center ">Sign in to your account</h1>
-              <div className="mx-auto w-1/2 mt-10">
-                {renderForm()}
-              </div>
-              <div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Mobile */}
+      
+      {isMobile ?       
       <div className="flex flex-col md:hidden min-h-screen items-center">
         <div className="w-full pb-6">
           <div className="w-full bg-gradient-to-b from-[#4BA2FF] to-[#0071FF] px-8 pt-16 pb-12">
@@ -131,7 +119,22 @@ function Step1() {
               {renderForm()}
             </div>
         </div>
-      </div>
+      </div> :  
+      <div className="md:flex items-center justify-center h-screen p-11 hidden">
+        <div className="step1 w-full rounded-4xl p-[40px] mx-auto">
+          <div className="p-10  rounded-[38px]" style={styles}>
+            <div className="bg-white w-full h-full p-10 rounded-[16px]">
+              <h1 className="text-charcoal-black text-5xl font-bold text-center ">Sign in to your account</h1>
+              <div className="mx-auto w-1/2 mt-10">
+                {renderForm()}
+              </div>
+              <div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>}
+
     </>
   )
 }
