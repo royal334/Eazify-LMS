@@ -9,6 +9,14 @@ type LoginPayload = {
 
 type LoginResponse = {
   access_token: string;
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    role: string;
+    createdAt: string;
+    updatedAt: string;
+  };
 };
 
 export const useLogin = () => {
